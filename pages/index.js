@@ -17,7 +17,7 @@ const Home = () => {
 				<Link href="/about">
 					<a>about</a>
 				</Link>
-				<div>Hello, Next!!</div>
+				<div>Hello, Next</div>
 			</AppLayout>
 		</>
 	);
