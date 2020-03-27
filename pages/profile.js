@@ -4,7 +4,7 @@ import Head from 'next/head';
 
 const Profile = () => {
 	return (
-		<>
+		<div>
 			<Head>
 				<title>NodeBird</title>
 				<link
@@ -13,7 +13,7 @@ const Profile = () => {
 				/>
 			</Head>
 			<Applayout>내 프로필</Applayout>
-		</>
+		</div>
 	);
 };
 
