@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import PropTypes from 'prop-types';
 import Applayout from '../components/Applayout';
 
 const NodeBird = ({ Component }) => {
@@ -17,6 +18,10 @@ const NodeBird = ({ Component }) => {
 			</Applayout>
 		</>
 	);
+};
+
+NodeBird.propTypes = {
+	Component: PropTypes.elementType, // jsx에 들어갈 수 있는 (렌더링 될 수 있는) 모든 것을 node라고한다.
 };
 
 export default NodeBird;
