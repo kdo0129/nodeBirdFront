@@ -1,6 +1,5 @@
 import React from 'react';
-import { Form, Input, Button, Card, Icon } from 'antd';
-import { List } from 'antd/lib/form/Form';
+import { Form, Input, Button, Card, Icon, List } from 'antd';
 const Profile = () => {
 	return (
 		<>
