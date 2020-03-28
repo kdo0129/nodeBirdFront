@@ -1,6 +1,15 @@
 import React from 'react';
 import { Card, Avatar } from 'antd';
-const Profile = () => {
+
+const dummy = {
+	nickname: 'Doum',
+	Post: [],
+	Followers: [],
+	Followings: [],
+	isLoggedIn: false,
+};
+
+const UserProfile = () => {
 	return (
 		<>
 			<Card
@@ -31,4 +40,4 @@ const Profile = () => {
 	);
 };
 
-export default Profile;
+export default UserProfile;

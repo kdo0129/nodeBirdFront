@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import LoginForm from '../components/LoginForm';
-import Profile from '../components/Profile';
+import UserProfile from '../components/UserProfile';
 import { Menu, Input, Button, Row, Col, Card, Avatar, Form } from 'antd';
 
 const dummy = {
@@ -38,7 +38,7 @@ const Applayout = ({ children }) => {
 			</Link>
 			<Row gutter={8}>
 				<Col xs={24} md={6}>
-					{dummy.isLoggedIn ? <Profile /> : <LoginForm />}
+					{dummy.isLoggedIn ? <UserProfile /> : <LoginForm />}
 				</Col>
 				<Col xs={24} md={12}>
 					{children}

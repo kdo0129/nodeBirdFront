@@ -1,12 +1,13 @@
 import React from 'react';
 import { Card, Icon, Button, Avatar } from 'antd';
+import PropTypes from 'prop-types';
 
-const PostCard = ({ key }) => {
+const PostCard = ({ post }) => {
 	return (
 		<>
 			<Card
-				key={+c.createdAt}
-				cover={c.img && <img alt="example" src={c.img} />}
+				key={+post.createdAt}
+				cover={post.img && <img alt="example" src={post.img} />}
 				actions={[
 					<Icon type="retweet" key="retweet" />,
 					<Icon type="heart" key="heart" />,
@@ -16,13 +17,22 @@ const PostCard = ({ key }) => {
 				extra={<Button>팔로우</Button>}
 			>
 				<Card.Meta
-					avatar={<Avatar>{c.User.nickname[0]}</Avatar>}
-					title={c.User.nickname}
-					description={c.content}
+					avatar={<Avatar>{post.User.nickname[0]}</Avatar>}
+					title={post.User.nickname}
+					description={post.content}
 				/>
 			</Card>
 		</>
 	);
+};
+
+PostCard.propTypes = {
+	post: PropTypes.shape({
+		User: PropTypes.object,
+		content: PropTypes.string,
+		img: PropTypes.string,
+		createdAt: PropTypes.object,
+	}),
 };
 
 export default PostCard;
