@@ -1,5 +1,6 @@
 import React from 'react';
-import { Form, Input, Button, Card, Icon, Avatar } from 'antd';
+import PostForm from '../components/PostForm';
+import PostCard from '../components/PostCard';
 
 const dummy = {
 	isLoggedIn: true,
@@ -13,7 +14,9 @@ const dummy = {
 			content: 'dummy content 입니다.',
 			img:
 				'https://pds.joins.com/news/component/htmlphoto_mmdata/201707/20/5c9958d8-2497-4bd2-bfd0-56272caa2bca.jpg',
+			createdAt: 1, // 임시 설정
 		},
+
 		{
 			User: {
 				id: 2,
@@ -22,6 +25,7 @@ const dummy = {
 			content: 'dummy content2 입니다.',
 			img:
 				'https://pds.joins.com/news/component/htmlphoto_mmdata/201707/20/5c9958d8-2497-4bd2-bfd0-56272caa2bca.jpg',
+			createdAt: 2, // 임시 설정
 		},
 	],
 };
@@ -30,61 +34,9 @@ const Home = () => {
 	return (
 		<>
 			<div>
-				{dummy.isLoggedIn && (
-					<Form encType="multipart/form-data" style={{ marginBottom: 20 }}>
-						<Input.TextArea
-							maxLength={140}
-							placeholder="오늘은 어떤 일이 있었나요?"
-						/>
-						<div>
-							<input type="file" multiple hidden />
-							<Button type="primary">이미지 업로드</Button>
-							<Button
-								type="primary"
-								style={{ float: 'right' }}
-								htmlType="submit"
-							>
-								트윗!
-							</Button>
-						</div>
-						<div>
-							{dummy.imagePaths.map((v, i) => {
-								return (
-									<div key={v} style={{ display: 'inline' }}>
-										<img
-											src={'http://localhost:3065/' + v}
-											style={{ width: `200px` }}
-											alt={v}
-										/>
-										<div>
-											<Button>제거</Button>
-										</div>
-									</div>
-								);
-							})}
-						</div>
-					</Form>
-				)}
+				{dummy.isLoggedIn && <PostForm dummy={dummy} />}
 				{dummy.mainPosts.map((c) => {
-					return (
-						<Card
-							key={+c.createdAt}
-							cover={c.img && <img alt="example" src={c.img} />}
-							actions={[
-								<Icon type="retweet" key="retweet" />,
-								<Icon type="heart" key="heart" />,
-								<Icon type="message" key="message" />,
-								<Icon type="ellipsis" key="ellipsis" />,
-							]}
-							extra={<Button>팔로우</Button>}
-						>
-							<Card.Meta
-								avatar={<Avatar>{c.User.nickname[0]}</Avatar>}
-								title={c.User.nickname}
-								description={c.content}
-							/>
-						</Card>
-					);
+					return <PostCard key={c} />;
 				})}
 			</div>
 		</>
