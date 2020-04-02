@@ -1,6 +1,13 @@
+const dummyUser = {
+	nickname: 'Doum',
+	Post: [],
+	Followers: [],
+	Followings: [],
+};
+
 export const initialState = {
 	isLoggedIn: false,
-	user: {},
+	user: null,
 };
 
 export const LOG_IN = 'LOG_IN'; // action 이름
@@ -8,9 +15,6 @@ export const LOG_OUT = 'LOG_OUT';
 
 export const loginAction = {
 	type: LOG_IN,
-	data: {
-		nickname: '도움',
-	},
 };
 
 export const logoutAction = {
@@ -23,7 +27,7 @@ const reducer = (state = initialState, action) => {
 			return {
 				...state,
 				isLoggedIn: true,
-				user: action.data,
+				user: dummyUser,
 			};
 
 		case LOG_OUT:
